@@ -10,7 +10,7 @@ import java.util.Random;
 public class Lab1P2_MiguelMoran {
 
     static Scanner sc = new Scanner(System.in);
-    
+
     public static void main(String[] args) {
         boolean seguir = true;
         while (seguir) {
@@ -34,7 +34,8 @@ public class Lab1P2_MiguelMoran {
         }
     }
 
-    public static void Numberly(int dificultad) {
+    public static String Numberly(int dificultad) {
+        String historial = "";
         Random rng = new Random();
         switch (dificultad) {
             case 1 -> {
@@ -46,10 +47,20 @@ public class Lab1P2_MiguelMoran {
                 for (int i = 0; i < 8; i++) {
                     System.out.print("Intento #" + (i + 1) + ": ");
                     String guess = sc.next();
-                    
+                    if (Numero(guess) && guess.length() == 3) {
+                        String string = "";
+                        for (int j = 0; j < guess.length(); j++) {
+                            if(guess.charAt(j) == numero.charAt(j)){
+                                string += "+";
+                            } else if (numero.charAt(j).contains(guess.charAt(j))){
+                                
+                            }
+                        }
+                    }
                 }
             }
         }
+        return historial;
     }
 
     public static boolean Numero(String string) {
