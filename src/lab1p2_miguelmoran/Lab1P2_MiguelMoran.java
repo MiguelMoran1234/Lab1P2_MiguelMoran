@@ -37,18 +37,21 @@ public class Lab1P2_MiguelMoran {
                     sc.nextLine();
                     String palabra = sc.nextLine();
                     String string = "";
-                    for (int i = palabra.length() - 1; i > -1; i--) {
-                        string += palabra.charAt(i);
-                    }
-                    if(string.equalsIgnoreCase(palabra)){
-                        System.out.println("La palabra es un palindromo.");
+                    string = Recursivo(palabra, string, palabra.length() - 1);
+                    palabra = palabra.replace(" ", "");
+                    if (string.equalsIgnoreCase(palabra)) {
+                        System.out.println("La palabra/frase es un palindromo.");
                     } else {
-                        System.out.println("La palabra no es un palindromo.");
+                        System.out.println("La palabra/frase no es un palindromo.");
                     }
                     System.out.println("");
                 }
                 case 3 -> {
                     seguir = false;
+                }
+                default -> {
+                    System.out.println("Opcion ingresada no valida.");
+                    System.out.println("");
                 }
             }
         }
@@ -81,8 +84,11 @@ public class Lab1P2_MiguelMoran {
                         }
                         System.out.println("Resultado: " + string);
                         historial += guess + " ? " + string + "\n";
-                        if(guess.equals(numero)){
+                        if (guess.equals(numero)) {
+                            System.out.println("Ha acertado el numero era: " + numero);
                             break;
+                        } else if (!guess.equals(numero) && i == 7){
+                            System.out.println("No ha acertado el nuero era: " + numero);
                         }
                     } else {
                         System.out.println("Guess no valido.");
@@ -113,8 +119,11 @@ public class Lab1P2_MiguelMoran {
                         }
                         System.out.println("Resultado: " + string);
                         historial += guess + " ? " + string + "\n";
-                        if(guess.equals(numero)){
+                        if (guess.equals(numero)) {
+                            System.out.println("Ha acertado el numero era: " + numero);
                             break;
+                        } else if (!guess.equals(numero) && i == 5){
+                            System.out.println("No ha acertado el nuero era: " + numero);
                         }
                     } else {
                         System.out.println("Guess no valido.");
@@ -145,8 +154,11 @@ public class Lab1P2_MiguelMoran {
                         }
                         System.out.println("Resultado: " + string);
                         historial += guess + " ? " + string + "\n";
-                        if(guess.equals(numero)){
+                        if (guess.equals(numero)) {
+                            System.out.println("Ha acertado el numero era: " + numero);
                             break;
+                        } else if (!guess.equals(numero) && i == 4){
+                            System.out.println("No ha acertado el nuero era: " + numero);
                         }
                     } else {
                         System.out.println("Guess no valido.");
@@ -163,6 +175,17 @@ public class Lab1P2_MiguelMoran {
         return historial;
     }
 
+    public static String Recursivo(String palabra, String string, int posicion) {
+        if(posicion > -1){
+            if(palabra.charAt(posicion) != ' '){
+                string += palabra.charAt(posicion);
+            }
+            return Recursivo (palabra, string, posicion - 1);
+        } else {
+            return string;
+        }
+    }
+
     public static boolean NumeroValido(String string, int size, int range) {
         boolean valido = true;
         for (int i = 0; i < string.length(); i++) {
@@ -171,7 +194,7 @@ public class Lab1P2_MiguelMoran {
                 valido = false;
             }
         }
-        if(string.length() != size){
+        if (string.length() != size) {
             valido = false;
         }
         return valido;
