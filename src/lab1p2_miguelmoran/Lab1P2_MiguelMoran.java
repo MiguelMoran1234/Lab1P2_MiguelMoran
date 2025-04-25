@@ -29,11 +29,13 @@ public class Lab1P2_MiguelMoran {
                     System.out.println("3. Dificil (Intentos 5, Longitud 5, Rango 1-9)");
                     System.out.print("Ingrese una opcion: ");
                     opcion = sc.nextInt();
+                    System.out.println("");
                     System.out.println(Numberly(opcion));
                 }
                 case 2 -> {
                     System.out.print("Ingrese una palabra o frase: ");
-                    String palabra = sc.next();
+                    sc.nextLine();
+                    String palabra = sc.nextLine();
                     String string = "";
                     for (int i = palabra.length() - 1; i > -1; i--) {
                         string += palabra.charAt(i);
