@@ -5,25 +5,61 @@
 package lab1p2_miguelmoran;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Lab1P2_MiguelMoran {
 
+    static Scanner sc = new Scanner(System.in);
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         boolean seguir = true;
-        while(seguir){
-            System.out.println("---------Menu---------");
+        while (seguir) {
+            System.out.println("-----Menu Principal-----");
             System.out.println("1. Jugar Numberly");
             System.out.println("2. Verificar Palindromo");
             System.out.println("3. Salir");
             System.out.print("Ingrese una opcion: ");
             int opcion = sc.nextInt();
-            switch(opcion){
+            switch (opcion) {
                 case 1 -> {
+                    System.out.println("---Seleccion de Dificultad---");
+                    System.out.println("1. Facil (Intentos 8, Longitud 3, Rango 1-6)");
+                    System.out.println("2. Medio (Intentos 6 Longitud 4, Rango 1-8)");
+                    System.out.println("3. Medio (Intentos 5, Longitud 5, Rango 1-9)");
+                    System.out.print("Ingrese una opcion: ");
+                    opcion = sc.nextInt();
+                    Numberly(opcion);
+                }
+            }
+        }
+    }
+
+    public static void Numberly(int dificultad) {
+        Random rng = new Random();
+        switch (dificultad) {
+            case 1 -> {
+                String numero = "";
+                for (int i = 0; i < 3; i++) {
+                    int digito = 1 + rng.nextInt(6);
+                    numero += Integer.toString(digito);
+                }
+                for (int i = 0; i < 8; i++) {
+                    System.out.print("Intento #" + (i + 1) + ": ");
+                    String guess = sc.next();
                     
                 }
             }
         }
     }
-    
+
+    public static boolean Numero(String string) {
+        boolean valido = true;
+        for (int i = 0; i < string.length(); i++) {
+            int ascii = string.charAt(i);
+            if (ascii < 48 || ascii > 57) {
+                valido = false;
+            }
+        }
+        return valido;
+    }
 }
