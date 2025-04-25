@@ -30,7 +30,6 @@ public class Lab1P2_MiguelMoran {
                     System.out.print("Ingrese una opcion: ");
                     opcion = sc.nextInt();
                     System.out.println(Numberly(opcion));
-                    System.out.println("");
                 }
                 case 2 -> {
                     System.out.print("Ingrese una palabra: ");
@@ -44,6 +43,7 @@ public class Lab1P2_MiguelMoran {
                     } else {
                         System.out.println("La palabra no es un palindromo.");
                     }
+                    System.out.println("");
                 }
                 case 3 -> {
                     seguir = false;
@@ -66,7 +66,7 @@ public class Lab1P2_MiguelMoran {
                 for (int i = 0; i < 8; i++) {
                     System.out.print("Intento #" + (i + 1) + ": ");
                     String guess = sc.next();
-                    if (Numero(guess) && guess.length() == 3) {
+                    if (NumeroValido(guess, 3, 6)) {
                         String string = "";
                         for (int j = 0; j < guess.length(); j++) {
                             if (guess.charAt(j) == numero.charAt(j)) {
@@ -98,7 +98,7 @@ public class Lab1P2_MiguelMoran {
                 for (int i = 0; i < 6; i++) {
                     System.out.print("Intento #" + (i + 1) + ": ");
                     String guess = sc.next();
-                    if (Numero(guess) && guess.length() == 4) {
+                    if (NumeroValido(guess, 4, 8)) {
                         String string = "";
                         for (int j = 0; j < guess.length(); j++) {
                             if (guess.charAt(j) == numero.charAt(j)) {
@@ -130,7 +130,7 @@ public class Lab1P2_MiguelMoran {
                 for (int i = 0; i < 5; i++) {
                     System.out.print("Intento #" + (i + 1) + ": ");
                     String guess = sc.next();
-                    if (Numero(guess) && guess.length() == 5) {
+                    if (NumeroValido(guess, 5, 9)) {
                         String string = "";
                         for (int j = 0; j < guess.length(); j++) {
                             if (guess.charAt(j) == numero.charAt(j)) {
@@ -161,13 +161,16 @@ public class Lab1P2_MiguelMoran {
         return historial;
     }
 
-    public static boolean Numero(String string) {
+    public static boolean NumeroValido(String string, int size, int range) {
         boolean valido = true;
         for (int i = 0; i < string.length(); i++) {
             int ascii = string.charAt(i);
-            if (ascii < 48 || ascii > 57) {
+            if (ascii < 49 || ascii > 48 + range) {
                 valido = false;
             }
+        }
+        if(string.length() != size){
+            valido = false;
         }
         return valido;
     }
