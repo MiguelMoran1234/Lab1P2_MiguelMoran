@@ -20,15 +20,23 @@ public class Lab1P2_MiguelMoran {
             System.out.println("3. Salir");
             System.out.print("Ingrese una opcion: ");
             int opcion = sc.nextInt();
+            System.out.println("");
             switch (opcion) {
                 case 1 -> {
                     System.out.println("---Seleccion de Dificultad---");
                     System.out.println("1. Facil (Intentos 8, Longitud 3, Rango 1-6)");
                     System.out.println("2. Medio (Intentos 6 Longitud 4, Rango 1-8)");
-                    System.out.println("3. Medio (Intentos 5, Longitud 5, Rango 1-9)");
+                    System.out.println("3. Dificil (Intentos 5, Longitud 5, Rango 1-9)");
                     System.out.print("Ingrese una opcion: ");
                     opcion = sc.nextInt();
-                    Numberly(opcion);
+                    System.out.println(Numberly(opcion));
+                    System.out.println("");
+                }
+                case 2 -> {
+                    
+                }
+                case 3 -> {
+                    
                 }
             }
         }
@@ -36,6 +44,7 @@ public class Lab1P2_MiguelMoran {
 
     public static String Numberly(int dificultad) {
         String historial = "";
+        historial += "Historial\n";
         Random rng = new Random();
         switch (dificultad) {
             case 1 -> {
@@ -58,20 +67,25 @@ public class Lab1P2_MiguelMoran {
                                 string += "x";
                             }
                         }
+                        System.out.println("Resultado: " + string);
                         historial += guess + " ? " + string + "\n";
+                        if(guess.equals(numero)){
+                            break;
+                        }
                     } else {
                         System.out.println("El texto ingresado no es un numero o su longitud es mayor a la maxima.");
                         i -= 1;
                     }
                 }
+                System.out.println("");
             }
             case 2 -> {
                 String numero = "";
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 4; i++) {
                     int digito = 1 + rng.nextInt(8);
                     numero += Integer.toString(digito);
                 }
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 6; i++) {
                     System.out.print("Intento #" + (i + 1) + ": ");
                     String guess = sc.next();
                     if (Numero(guess) && guess.length() == 4) {
@@ -85,20 +99,25 @@ public class Lab1P2_MiguelMoran {
                                 string += "x";
                             }
                         }
+                        System.out.println("Resultado: " + string);
                         historial += guess + " ? " + string + "\n";
+                        if(guess.equals(numero)){
+                            break;
+                        }
                     } else {
                         System.out.println("El texto ingresado no es un numero o su longitud es mayor a la maxima.");
                         i -= 1;
                     }
                 }
+                System.out.println("");
             }
             case 3 -> {
                 String numero = "";
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 5; i++) {
                     int digito = 1 + rng.nextInt(9);
                     numero += Integer.toString(digito);
                 }
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 5; i++) {
                     System.out.print("Intento #" + (i + 1) + ": ");
                     String guess = sc.next();
                     if (Numero(guess) && guess.length() == 5) {
@@ -112,15 +131,21 @@ public class Lab1P2_MiguelMoran {
                                 string += "x";
                             }
                         }
+                        System.out.println("Resultado: " + string);
                         historial += guess + " ? " + string + "\n";
+                        if(guess.equals(numero)){
+                            break;
+                        }
                     } else {
-                        System.out.println("El texto ingresado no es un numero o su longitud es mayor a la maxima.");
+                        System.out.println("El texto ingresado no es un numero o su longitud es diferente a la requerida.");
                         i -= 1;
                     }
                 }
+                System.out.println("");
             }
             default -> {
                 System.out.println("Opcion ingresada no valida");
+                System.out.println("");
             }
         }
         return historial;
