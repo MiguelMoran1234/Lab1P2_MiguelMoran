@@ -33,10 +33,20 @@ public class Lab1P2_MiguelMoran {
                     System.out.println("");
                 }
                 case 2 -> {
-                    
+                    System.out.print("Ingrese una palabra: ");
+                    String palabra = sc.next();
+                    String string = "";
+                    for (int i = palabra.length() - 1; i > -1; i--) {
+                        string += palabra.charAt(i);
+                    }
+                    if(string.equalsIgnoreCase(palabra)){
+                        System.out.println("La palabra es un palindromo.");
+                    } else {
+                        System.out.println("La palabra no es un palindromo.");
+                    }
                 }
                 case 3 -> {
-                    
+                    seguir = false;
                 }
             }
         }
@@ -44,7 +54,7 @@ public class Lab1P2_MiguelMoran {
 
     public static String Numberly(int dificultad) {
         String historial = "";
-        historial += "Historial\n";
+        historial += "Historial:\n";
         Random rng = new Random();
         switch (dificultad) {
             case 1 -> {
@@ -73,7 +83,7 @@ public class Lab1P2_MiguelMoran {
                             break;
                         }
                     } else {
-                        System.out.println("El texto ingresado no es un numero o su longitud es mayor a la maxima.");
+                        System.out.println("Guess no valido.");
                         i -= 1;
                     }
                 }
@@ -105,7 +115,7 @@ public class Lab1P2_MiguelMoran {
                             break;
                         }
                     } else {
-                        System.out.println("El texto ingresado no es un numero o su longitud es mayor a la maxima.");
+                        System.out.println("Guess no valido.");
                         i -= 1;
                     }
                 }
@@ -137,7 +147,7 @@ public class Lab1P2_MiguelMoran {
                             break;
                         }
                     } else {
-                        System.out.println("El texto ingresado no es un numero o su longitud es diferente a la requerida.");
+                        System.out.println("Guess no valido.");
                         i -= 1;
                     }
                 }
