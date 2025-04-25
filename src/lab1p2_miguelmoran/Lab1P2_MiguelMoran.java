@@ -32,7 +32,7 @@ public class Lab1P2_MiguelMoran {
                     System.out.println(Numberly(opcion));
                 }
                 case 2 -> {
-                    System.out.print("Ingrese una palabra: ");
+                    System.out.print("Ingrese una palabra o frase: ");
                     String palabra = sc.next();
                     String string = "";
                     for (int i = palabra.length() - 1; i > -1; i--) {
